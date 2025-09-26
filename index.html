@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>School Shares Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <div id="lock-screen" class="centered">
+    <div class="lock-card">
+      <h2>Enter Access Password</h2>
+      <input id="password-input" type="password" placeholder="Password" />
+      <button id="unlock-btn">Unlock</button>
+      <p id="lock-msg" class="muted">Only for students & teachers</p>
+    </div>
+  </div>
+
+  <div id="app" class="hidden">
+    <header class="topbar">
+      <div class="brand">MySchool Stocks</div>
+      <div class="controls">
+        <label>
+          Background:
+          <input type="color" id="bg-color" value="#0f172a"/>
+        </label>
+        <button id="open-demat">Open Demat Site</button>
+        <button id="reset-names" title="Reset custom names">Reset Names</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="portfolio">
+        <h3>Portfolio (9 stocks)</h3>
+        <div id="stocks-grid" class="grid"></div>
+      </section>
+
+      <section class="settings">
+        <h3>Settings</h3>
+        <div class="setting-row">
+          <label>Change display names (these don't change the underlying symbols)</label>
+          <div id="names-edit" class="names-edit"></div>
+        </div>
+      </section>
+
+      <section class="demat-section">
+        <h3>Demat Account</h3>
+        <p>Embedded demat site (if allowed). If your site disallows embedding, it will open in a new tab.</p>
+        <div class="demat-controls">
+          <input id="demat-url" placeholder="https://your-demat-site.example" />
+          <button id="embed-demat">Embed</button>
+          <button id="open-demat-new">Open in new tab</button>
+        </div>
+        <div id="demat-frame-wrap" class="iframe-wrap hidden">
+          <iframe id="demat-frame" src="" title="Demat"></iframe>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer muted">
+      <small>Built for school use — not for actual trading. Replace API key/config for live data.</small>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
